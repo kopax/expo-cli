@@ -1,6 +1,6 @@
 {
   "name": "@yeutech-lab/expo-cli",
-  "version": "3.11.3-fix-1405",
+  "version": "3.11.3-fix-1405.2",
   "description": "The command-line tool for creating and publishing Expo apps",
   "preferGlobal": true,
   "main": "build/exp.js",
