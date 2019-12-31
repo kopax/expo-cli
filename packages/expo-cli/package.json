@@ -20,8 +20,8 @@
     "test:watch": "jest --watch"
   },
   "bin": {
-    "expo": "./bin/expo.js",
-    "expo-cli": "./bin/expo.js"
+    "expo-fix-1405": "./bin/expo.js",
+    "expo-cli-fix-1405": "./bin/expo.js"
   },
   "repository": {
     "type": "git",
