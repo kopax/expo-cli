@@ -11,8 +11,9 @@ import { BuildInfo } from './Builder';
 async function waitForBuildEnd(
   client: TurtleApi,
   buildId: string,
-  { timeoutSec = 1800, intervalSec = 30 } = {}
+  { timeoutSec = 36000, intervalSec = 60 } = {}
 ) {
+  log(`This expo-cli fork increase: timeoutSec=${timeoutSec} intervalSec=${intervalSec}.`);
   log('Waiting for build to complete. You can press Ctrl+C to exit.');
   const spinner = ora().start();
   let time = new Date().getTime();
