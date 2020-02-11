@@ -14,7 +14,7 @@ async function waitForBuildEnd(
   { timeoutSec = 36000, intervalSec = 60 } = {}
 ) {
   log(`This expo-cli fork increase: timeoutSec=${timeoutSec} intervalSec=${intervalSec}.`);
-  log('Waiting for build to complete. You can press Ctrl+C to exit.');
+  log('Waiting for build to complete. You can press Ctrl+C to exit. (1)');
   const spinner = ora().start();
   let time = new Date().getTime();
   const endTime = time + timeoutSec * 1000;
