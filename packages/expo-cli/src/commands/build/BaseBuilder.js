@@ -106,7 +106,7 @@ export default class BaseBuilder {
     }
   }
 
-  async checkForBuildInProgress() {
+  async checkForBuildInProgressOld() {
     log('Checking if there is a build in progress...\n');
     let buildStatus;
     if (process.env.EXPO_NEXT_API) {
@@ -129,6 +129,18 @@ export default class BaseBuilder {
     }
     if (buildStatus.jobs && buildStatus.jobs.length) {
       throw new BuildError('Cannot start a new build, as there is already an in-progress build.');
+    }
+  }
+
+  async checkForBuildInProgress({ intervalSec = 60 }) {
+    log(`loopCheckForBuildInProgress expo-cli fork increase: intervalSec=${intervalSec}.`);
+    while (true) { 
+      try {
+        return await this.checkForBuildInProgressOld(); 
+      } catch (error) {
+        log(`${error.message}, trying again in ${intervalSec} seconds`);
+        await delayAsync(intervalSec * 1000);
+      } 
     }
   }
 
@@ -305,7 +317,7 @@ ${job.id}
     }
   }
 
-  async wait(buildId, { timeout = 3600, interval = 30, publicUrl } = {}) {
+  async wait(buildId, { timeout = 36000, interval = 30, publicUrl } = {}) {
     log(`This expo-cli fork increase: timeout=${timeout} interval=${interval}.`);
     log(`Waiting for build to complete. You can press Ctrl+C to exit. (2)`);
     let spinner = ora().start();
