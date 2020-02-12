@@ -132,15 +132,15 @@ export default class BaseBuilder {
     }
   }
 
-  async checkForBuildInProgress({ intervalSec = 60 }) {
+  async checkForBuildInProgress({ intervalSec = 60 } = {}) {
     log(`loopCheckForBuildInProgress expo-cli fork increase: intervalSec=${intervalSec}.`);
-    while (true) { 
+    while (true) {
       try {
-        return await this.checkForBuildInProgressOld(); 
+        return await this.checkForBuildInProgressOld();
       } catch (error) {
         log(`${error.message}, trying again in ${intervalSec} seconds`);
         await delayAsync(intervalSec * 1000);
-      } 
+      }
     }
   }
 
