@@ -1,0 +1,21 @@
+import { ExpoConfig } from '@expo/config';
+import { ManifestOptions } from './WebpackPWAManifestPlugin.types';
+export declare function createPWAManifestFromExpoConfig(appJson: ExpoConfig): {
+    background_color: any;
+    description: any;
+    dir: any;
+    display: any;
+    lang: any;
+    name: any;
+    orientation: any;
+    prefer_related_applications: any;
+    related_applications: any;
+    scope: any;
+    short_name: any;
+    start_url: any;
+    theme_color: any;
+    crossorigin: any;
+    startupImages: any;
+    icons: any;
+};
+export declare function validateManifest(manifest: ManifestOptions): void;
